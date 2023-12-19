@@ -15,6 +15,7 @@
 .form {
   background-color: #0e204e;
   background-image: linear-gradient(315deg, #0e204e 0%, #28313b 74%);
+  height: 100dvh;
 }
 
 .form__card {

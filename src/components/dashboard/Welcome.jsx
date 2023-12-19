@@ -22,7 +22,7 @@ const Welcome = () => {
         const docRef = doc(store, "/users", `${user.email}`);
         const userDetails = await getDoc(docRef);
 
-        setName(userDetails.data());
+        setName(...userDetails.data());
       } catch (error) {
         console.log(error);
       }

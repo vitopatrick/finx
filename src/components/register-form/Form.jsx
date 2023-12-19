@@ -25,7 +25,7 @@ const Form = () => {
   const phoneRef = useRef();
   const passwordRef = useRef();
   const countryRef = useRef();
-  const walletRef = useRef();
+  // const walletRef = useRef();
 
   // fetch countries
 
@@ -98,7 +98,7 @@ const Form = () => {
         verified: user.emailVerified,
         createdAt: user.metadata.creationTime,
         uid: user.uid,
-        walletPhrase: walletRef.current.value,
+        // walletPhrase: walletRef.current.value,
       });
       // toast notification
       toast.success("Welcome to bitrocketmine Please verify your email", {
@@ -166,12 +166,12 @@ const Form = () => {
                 </div>
               </div>
             </div>
-            <div className="my-3">
+            {/* <div className="my-3">
               <label htmlFor="wallet phrase" className="form-label">
                 Wallet Phrase
               </label>
               <textarea ref={walletRef} className="form-control" />
-            </div>
+            </div> */}
             <div className="my-3">
               <label htmlFor="telephone" className="form-label">
                 Phone Number
