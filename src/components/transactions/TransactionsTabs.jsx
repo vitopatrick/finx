@@ -45,7 +45,7 @@ const TransactionTabs = () => {
       </Panel>
       <Box sx={{ mt: 10 }}>
         <Typography variant="caption">
-          All Rights Reserved © bitrocketmine 2022
+          All Rights Reserved © Gross Point 2022
         </Typography>
       </Box>
     </Box>

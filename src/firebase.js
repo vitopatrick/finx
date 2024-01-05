@@ -7,13 +7,14 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDoAl09B3D94tRpFzEqJ_E3b2LsFGiTiC0",
-  authDomain: "roketmine-4f19b.firebaseapp.com",
-  projectId: "roketmine-4f19b",
-  storageBucket: "roketmine-4f19b.appspot.com",
-  messagingSenderId: "777482505460",
-  appId: "1:777482505460:web:7fc0bb097ac6a5572062a1",
+  apiKey: "AIzaSyCdoYJhbcGJgq581hazH79E-UiSHaabVa8",
+  authDomain: "grosspoint-dc427.firebaseapp.com",
+  projectId: "grosspoint-dc427",
+  storageBucket: "grosspoint-dc427.appspot.com",
+  messagingSenderId: "2416104695",
+  appId: "1:2416104695:web:1e916c50a3d86963a0eff2",
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

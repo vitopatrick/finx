@@ -34,7 +34,7 @@ const Footer = () => {
             </div>
             <div className="col-sm-12 col-md-4 col-lg-4 d-flex flex-column mb-5">
               <h3>Contact Info</h3>
-              <p>support@bitrocketmine.com</p>
+              <p>support@grosspoint.online</p>
               <p>Atlanta,Georgia United States</p>
             </div>
           </div>
@@ -57,7 +57,7 @@ const Footer = () => {
           </div> */}
           <div className="text-center mt-3">
             <p>
-              COPYRIGHT © RESVERED bitrocketmine 2014 -{" "}
+              COPYRIGHT © RESVERED Gross Point 2014 -{" "}
               {moment(new Date()).format("YYYY")}
             </p>
           </div>

@@ -91,7 +91,7 @@ const Layout = (props) => {
             onClick={goHome}
             sx={{ p: 1, color: "#ffff", cursor: "pointer" }}
           >
-            bitrocketmine
+            Gross Point
           </Typography>
         </Toolbar>
       </AppBar>
