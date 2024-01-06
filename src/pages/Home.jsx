@@ -14,23 +14,23 @@ import Plan from "../components/Plan/Plan";
 const Home = () => {
   const navigate = useNavigate();
 
+
   useEffect(() => {
     const token = sessionStorage.getItem("token");
 
     if (token) {
       navigate("/dashboard");
     }
-    var Tawk_API = Tawk_API || {},
-      Tawk_LoadStart = new Date();
-    (function () {
-      var s1 = document.createElement("script"),
-        s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = "https://embed.tawk.to/64af39d0cc26a871b0280ec1/1h567jmsm";
-      s1.charset = "UTF-8";
-      s1.setAttribute("crossorigin", "*");
-      s0.parentNode.insertBefore(s1, s0);
-    })();
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "//code.jivosite.com/widget/qxMJU6DMnb";
+
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup: Remove the script when the component unmounts
+      document.body.removeChild(script);
+    };
   }, []);
 
   return (
