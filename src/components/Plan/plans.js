@@ -10,14 +10,14 @@ export const plans = [
     Duration: "24Hrs",
     price: "$100-$5,000",
     min: "5000",
-    roi: "25%",
+    roi: "60%",
   },
   {
     title: "Sliver",
     Duration: "48Hrs",
     price: "$5,000-$10,000",
     min: "10000",
-    roi: "50%",
+    roi: "65%",
   },
   {
     title: "Gold",
