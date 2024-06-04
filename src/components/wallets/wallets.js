@@ -17,7 +17,7 @@ export const wallets = [
   },
   {
     coin: "USDT ERC20 ",
-    address: "0x8479275Fd071B80DB7f2E922023f22eB865Cc582",
+    address: "0x1E02ae2E270f86E7b8F9cC9Db3d9307907f9a21D",
     addressName: "ETH Address:",
     icon: usdtLogo,
   },
