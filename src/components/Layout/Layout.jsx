@@ -91,7 +91,7 @@ const Layout = (props) => {
             onClick={goHome}
             sx={{ p: 1, color: "#ffff", cursor: "pointer" }}
           >
-            Gross Point
+            Cross Point
           </Typography>
         </Toolbar>
       </AppBar>

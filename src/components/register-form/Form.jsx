@@ -101,7 +101,7 @@ const Form = () => {
         // walletPhrase: walletRef.current.value,
       });
       // toast notification
-      toast.success("Welcome to Gross Point Please verify your email", {
+      toast.success("Welcome to Cross Point Please verify your email", {
         position: "top-center",
         theme: "colored",
       });
@@ -138,7 +138,7 @@ const Form = () => {
         <div className="form__body">
           <div className="form__title text-center my-5">
             <Link to="/" className="fs-1 fw-bolder text-main text-primary">
-              Gross Point
+              Cross Point
             </Link>
             <p className="text-muted">
               If you already have an account with us click here to{" "}
@@ -210,7 +210,7 @@ const Form = () => {
                 <Link to="/terms" className="t-m">
                   Terms & Conditions
                 </Link>
-                {""}of Gross Point
+                {""}of Cross Point
               </p>
             </div>
             <button
@@ -222,7 +222,7 @@ const Form = () => {
           </div>
           <div className="text-center mt-2">
             <p className="text-primary">
-              © Copyright 2022 Gross Point All Rights Reserved.
+              © Copyright 2022 Cross Point All Rights Reserved.
             </p>
           </div>
         </div>
