@@ -23,7 +23,7 @@ const Home = () => {
     }
     const script = document.createElement("script");
     script.async = true;
-    script.src = "//code.jivosite.com/widget/qxMJU6DMnb";
+    script.src = "//code.jivosite.com/widget/oIw1LQ6pto";
 
     document.body.appendChild(script);
 

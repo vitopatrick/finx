@@ -3,16 +3,15 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
-// this will be hidden in an envirnoment variable
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCdoYJhbcGJgq581hazH79E-UiSHaabVa8",
-  authDomain: "grosspoint-dc427.firebaseapp.com",
-  projectId: "grosspoint-dc427",
-  storageBucket: "grosspoint-dc427.appspot.com",
-  messagingSenderId: "2416104695",
-  appId: "1:2416104695:web:1e916c50a3d86963a0eff2",
+  apiKey: "AIzaSyDXZw7kuxEbzOECF8oFCv5TZ_zXo3mkFO0",
+  authDomain: "crosspoint-c9919.firebaseapp.com",
+  projectId: "crosspoint-c9919",
+  storageBucket: "crosspoint-c9919.appspot.com",
+  messagingSenderId: "718451202525",
+  appId: "1:718451202525:web:4171a7840a23b64d74fe34",
 };
 
 
