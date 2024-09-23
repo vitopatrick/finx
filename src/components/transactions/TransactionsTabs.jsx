@@ -45,7 +45,7 @@ const TransactionTabs = () => {
       </Panel>
       <Box sx={{ mt: 10 }}>
         <Typography variant="caption">
-          All Rights Reserved © Cross Point 2022
+          All Rights Reserved © finance Fx 2022
         </Typography>
       </Box>
     </Box>

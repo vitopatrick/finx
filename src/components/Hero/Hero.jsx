@@ -26,8 +26,8 @@ const Hero = () => {
               </h4>
               <p className="text-white">
                 Buy, store, swap and spend cryptocurrency all in one app. <br />{" "}
-                Turn Bitcoin into dollars with the Cross Point crypto debit
-                card. Earn cash back automatically.
+                Turn Bitcoin into dollars with the finance Fx crypto debit card.
+                Earn cash back automatically.
               </p>
               <div className="mt-4 d-flex flex-column flex-sm-row">
                 <Link to="/register" className="bg-white p-3 rounded me-4">

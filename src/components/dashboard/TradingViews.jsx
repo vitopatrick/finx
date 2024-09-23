@@ -48,7 +48,7 @@ const TradingViews = () => {
       </Box>
       <Box sx={{ mt: 4 }}>
         <Typography variant="caption" textAlign="center">
-          Cross Point © 2022
+          finance Fx © 2022
         </Typography>
       </Box>
     </div>

@@ -45,9 +45,6 @@ const Form = () => {
       });
       navigate("/dashboard");
     } catch (error) {
-
-      
-
       if (error.code === "auth/invalid-login-credentials") {
         toast("Password is Incorrect", {
           type: "error",
@@ -97,7 +94,7 @@ const Form = () => {
       <div className="form__card shadow rounded my-5 p-3">
         <div className="form__title text-center">
           <Link to="/" className="fs-1 fw-bolder text-main text-primary">
-            Cross Point
+            finance Fx
           </Link>
           <p>
             Click here to{" "}
