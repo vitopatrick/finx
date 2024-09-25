@@ -5,12 +5,12 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDXZw7kuxEbzOECF8oFCv5TZ_zXo3mkFO0",
-  authDomain: "Neomarketdfx-c9919.firebaseapp.com",
-  projectId: "Neomarketdfx-c9919",
-  storageBucket: "Neomarketdfx-c9919.appspot.com",
-  messagingSenderId: "718451202525",
-  appId: "1:718451202525:web:4171a7840a23b64d74fe34",
+  apiKey: "AIzaSyBCsekT9gVzbeCqTO8X1u2JtOcpL3sgeRI",
+  authDomain: "neomarketfx-b4063.firebaseapp.com",
+  projectId: "neomarketfx-b4063",
+  storageBucket: "neomarketfx-b4063.appspot.com",
+  messagingSenderId: "810434926415",
+  appId: "1:810434926415:web:090e3cd8336468fdc0d73a",
 };
 
 // Initialize Firebase
