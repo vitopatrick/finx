@@ -14,7 +14,6 @@ import Plan from "../components/Plan/Plan";
 const Home = () => {
   const navigate = useNavigate();
 
-
   useEffect(() => {
     const token = sessionStorage.getItem("token");
 
@@ -23,7 +22,7 @@ const Home = () => {
     }
     const script = document.createElement("script");
     script.async = true;
-    script.src = "//code.jivosite.com/widget/oIw1LQ6pto";
+    script.src = "//code.jivosite.com/widget/D0yrc1uGaH";
 
     document.body.appendChild(script);
 
