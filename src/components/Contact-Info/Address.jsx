@@ -17,7 +17,7 @@ const Address = () => {
               <p>Atlanta,Georgia United States</p>
             </div>
           </div>
-          <div className="address__card">
+          {/* <div className="address__card">
             <div>
               <FaEnvelope />
             </div>
@@ -25,7 +25,7 @@ const Address = () => {
               <h1 className="fs-4">Email</h1>
               <p>support@Neomarketdfx.online</p>
             </div>
-          </div>
+          </div> */}
           <div className="address__card">
             <div>
               <FaPhoneAlt />
