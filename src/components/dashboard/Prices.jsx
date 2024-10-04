@@ -47,9 +47,10 @@ const Prices = () => {
                 </Box>
                 <Box sx={{ ml: 2 }}>
                   <Typography variant="body1">Deposited</Typography>
-                  <Typography variant="subtitle1">{`$${details.deposited.toFixed(
-                    2
-                  )}`}</Typography>
+                  <Typography
+                    variant="subtitle1"
+                    sx={{ fontSize: "25px" }}
+                  >{`$${details.deposited.toFixed(2)}`}</Typography>
                 </Box>
               </Box>
             </Paper>
@@ -66,9 +67,10 @@ const Prices = () => {
                 </Box>
                 <Box sx={{ ml: 2 }}>
                   <Typography variant="body1">Profit</Typography>
-                  <Typography variant="subtitle1">{`$${details.profit.toFixed(
-                    2
-                  )}`}</Typography>
+                  <Typography
+                    variant="subtitle1"
+                    sx={{ fontSize: "25px" }}
+                  >{`$${details.profit.toFixed(2)}`}</Typography>
                 </Box>
               </Box>
             </Paper>
@@ -85,9 +87,10 @@ const Prices = () => {
                 </Box>
                 <Box sx={{ ml: 2 }}>
                   <Typography variant="body1">Bonus</Typography>
-                  <Typography variant="subtitle1">{`$${details.bonus.toFixed(
-                    2
-                  )}`}</Typography>
+                  <Typography
+                    variant="subtitle1"
+                    sx={{ fontSize: "25px" }}
+                  >{`$${details.bonus.toFixed(2)}`}</Typography>
                 </Box>
               </Box>
             </Paper>
@@ -123,9 +126,10 @@ const Prices = () => {
                 </Box>
                 <Box sx={{ ml: 2 }}>
                   <Typography variant="body1">Balance</Typography>
-                  <Typography variant="subtitle1">{`$${details.balance.toFixed(
-                    2
-                  )}`}</Typography>
+                  <Typography
+                    variant="subtitle1"
+                    sx={{ fontSize: "25px" }}
+                  >{`$${details.balance.toFixed(2)}`}</Typography>
                 </Box>
               </Box>
             </Paper>
@@ -142,7 +146,7 @@ const Prices = () => {
                 </Box>
                 <Box sx={{ ml: 2 }}>
                   <Typography variant="body1">Total Package</Typography>
-                  <Typography variant="subtitle1">
+                  <Typography variant="subtitle1" sx={{ fontSize: "25px" }}>
                     {details.totalPackages}
                   </Typography>
                 </Box>
@@ -161,7 +165,7 @@ const Prices = () => {
                 </Box>
                 <Box sx={{ ml: 2 }}>
                   <Typography variant="body1">Active Packages</Typography>
-                  <Typography variant="subtitle1">
+                  <Typography variant="subtitle1" sx={{ fontSize: "25px" }}>
                     {details.activePages}
                   </Typography>
                 </Box>
