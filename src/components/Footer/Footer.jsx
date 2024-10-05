@@ -55,6 +55,26 @@ const Footer = () => {
               </a>
             </div>
           </div> */}
+          <div>
+            <p className="gray">
+              Risk Warning: Trading Forex and Leveraged Financial Instruments
+              involves significant risk and can result in the loss of your
+              invested capital. You should not invest more than you can afford
+              to lose and should ensure that you fully understand the risks
+              involved. Trading leveraged products may not be suitable for all
+              investors. Before trading, please take into consideration your
+              level of experience, investment objectives, and seek independent
+              financial advice if necessary. It is the responsibility of the
+              Client to ascertain whether he/she is permitted to use the
+              services of the Neo Market brand based on the legal requirements
+              in his/her country of residence. Please read Neo Market’s full
+              Risk Disclosure. The information on this website is not intended
+              to be addressed to the public of Neo Market.com does not provide
+              services to residents of Suriname, North Korea, U.S citizens,
+              Syria. other jurisdictions that would be contrary to local law or
+              regulation..
+            </p>
+          </div>
           <div className="text-center mt-3">
             <p>
               COPYRIGHT © RESERVED Neo Market 2014 -{" "}

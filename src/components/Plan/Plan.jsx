@@ -11,7 +11,10 @@ const Plan = () => {
       <div className="d-flex flex-column justify-content-center align-items-center">
         <div className="container d-flex flex-column justify-content-center align-items-center">
           <div className="mt-1 mb-2">
-            <h1 className="text-align fw-bolder">Choose A Plan</h1>
+            <h1 className="text-center fw-bolder">Choose A Plan</h1>
+            <p className="text-align fw-bolder">
+              Our duration ranges between a minimum of 3-9 months{" "}
+            </p>
           </div>
         </div>
       </div>
@@ -38,14 +41,7 @@ const Plan = () => {
                     >
                       {plan.price}
                     </Typography>
-                    <Typography
-                      variant="subtitle1"
-                      component="h1"
-                      gutterBottom
-                      textAlign="center"
-                    >
-                      Duration:{plan.Duration}
-                    </Typography>
+
                     <Typography
                       variant="subtitle1"
                       component="h1"

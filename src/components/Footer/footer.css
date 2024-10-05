@@ -10,6 +10,10 @@
   align-items: center;
 }
 
+.gray {
+  color: #8d8f94;
+}
+
 .footer__media {
   background-color: #081125;
   margin-right: 0.8rem;
