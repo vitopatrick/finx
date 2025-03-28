@@ -45,7 +45,7 @@ const TransactionTabs = () => {
       </Panel>
       <Box sx={{ mt: 10 }}>
         <Typography variant="caption">
-          All Rights Reserved © Neo Market 2024
+          All Rights Reserved © Neo Market 2025
         </Typography>
       </Box>
     </Box>

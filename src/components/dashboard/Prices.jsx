@@ -14,6 +14,7 @@ import { getDoc, doc } from "firebase/firestore";
 import { store } from "../../firebase";
 // user context
 import { UserContext } from "../../context/UserContext";
+import { formatToDollar } from "../../utils/fn";
 
 const Prices = () => {
   const { user } = useContext(UserContext);
@@ -47,10 +48,9 @@ const Prices = () => {
                 </Box>
                 <Box sx={{ ml: 2 }}>
                   <Typography variant="body1">Deposited</Typography>
-                  <Typography
-                    variant="subtitle1"
-                    sx={{ fontSize: "25px" }}
-                  >{`$${details.deposited.toFixed(2)}`}</Typography>
+                  <Typography variant="subtitle1" sx={{ fontSize: "25px" }}>
+                    {formatToDollar(details.deposited)}
+                  </Typography>
                 </Box>
               </Box>
             </Paper>
@@ -67,10 +67,9 @@ const Prices = () => {
                 </Box>
                 <Box sx={{ ml: 2 }}>
                   <Typography variant="body1">Profit</Typography>
-                  <Typography
-                    variant="subtitle1"
-                    sx={{ fontSize: "25px" }}
-                  >{`$${details.profit.toFixed(2)}`}</Typography>
+                  <Typography variant="subtitle1" sx={{ fontSize: "25px" }}>
+                    {formatToDollar(details.profit)}
+                  </Typography>
                 </Box>
               </Box>
             </Paper>
@@ -87,10 +86,9 @@ const Prices = () => {
                 </Box>
                 <Box sx={{ ml: 2 }}>
                   <Typography variant="body1">Bonus</Typography>
-                  <Typography
-                    variant="subtitle1"
-                    sx={{ fontSize: "25px" }}
-                  >{`$${details.bonus.toFixed(2)}`}</Typography>
+                  <Typography variant="subtitle1" sx={{ fontSize: "25px" }}>
+                    {formatToDollar(details.bonus)}
+                  </Typography>
                 </Box>
               </Box>
             </Paper>
@@ -126,10 +124,9 @@ const Prices = () => {
                 </Box>
                 <Box sx={{ ml: 2 }}>
                   <Typography variant="body1">Balance</Typography>
-                  <Typography
-                    variant="subtitle1"
-                    sx={{ fontSize: "25px" }}
-                  >{`$${details.balance.toFixed(2)}`}</Typography>
+                  <Typography variant="subtitle1" sx={{ fontSize: "25px" }}>
+                    {formatToDollar(details.balance)}
+                  </Typography>
                 </Box>
               </Box>
             </Paper>

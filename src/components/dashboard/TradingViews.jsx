@@ -48,7 +48,7 @@ const TradingViews = () => {
       </Box>
       <Box sx={{ mt: 4 }}>
         <Typography variant="caption" textAlign="center">
-          Neo Market © 2024
+          Neo Market © 2025
         </Typography>
       </Box>
     </div>

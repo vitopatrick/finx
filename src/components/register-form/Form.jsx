@@ -222,7 +222,7 @@ const Form = () => {
           </div>
           <div className="text-center mt-2">
             <p className="text-primary">
-              © Copyright 2024 Neo Market All Rights Reserved.
+              © Copyright 2025 Neo Market All Rights Reserved.
             </p>
           </div>
         </div>
