@@ -1,5 +1,7 @@
 .work {
-  margin: 4rem auto;
+  padding: 6rem 0;
+  background-color: rgba(8, 17, 37, 0.97);
+  position: relative;
 }
 
 .work__container {
@@ -7,33 +9,130 @@
   margin: auto;
 }
 
-.work__title {
+.work__header {
   text-align: center;
-  margin: 2.5rem 0;
-}
-.work__title p {
-  color: #777;
+  margin-bottom: 4rem;
 }
 
-.work__grid {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  margin: 2rem 0;
+.work__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
 }
 
-.work__card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.work__subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-@media screen and (max-width: 780px) {
-  .work__grid {
-    flex-direction: column;
+.work__timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+}
+
+.work__timeline::before {
+  content: "";
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #4f6ef7, #a855f7);
+  opacity: 0.2;
+}
+
+.step__card {
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.step__card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(79, 110, 247, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.step__number {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(120deg, #4f6ef7, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.5;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.step__icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #4f6ef7;
+  background: linear-gradient(120deg, #4f6ef7, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 1;
+}
+
+.step__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.step__description {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .work__timeline {
+    grid-template-columns: repeat(2, 1fr);
   }
-  .work__card {
-    margin: 3rem auto;
+
+  .work__timeline::before {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .work {
+    padding: 4rem 0;
+  }
+
+  .work__title {
+    font-size: 2rem;
+  }
+
+  .work__timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .step__card {
+    text-align: left;
+    padding: 1.5rem;
+  }
+
+  .step__number {
+    font-size: 2.5rem;
+  }
+
+  .step__icon {
+    font-size: 2rem;
   }
 }

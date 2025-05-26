@@ -5,40 +5,45 @@ import "./hero.css";
 
 const Hero = () => {
   return (
-    <>
-      <div
-        className="hero"
-        style={{
-          backgroundImage:
-            "url('https://images.pexels.com/photos/590011/pexels-photo-590011.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')",
-          height: "70dvh",
-          position: "relative",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <div className="hero__overlay">
-          <div className="container py-5">
-            {/* header CTA */}
-            <div>
-              <h4 className="text-white font-weight-bold fs-1 fw-bolder">
-                The Most Reliable <br /> Crypto Investment Platform.
-              </h4>
-              <p className="text-white">
-                Buy, store, swap and spend cryptocurrency all in one platform.{" "}
-                <br /> Turn Bitcoin into dollars with the Neo Market crypto
-                debit card. Earn cash back automatically.
-              </p>
-              <div className="mt-4 d-flex flex-column flex-sm-row">
-                <Link to="/register" className="bg-white p-3 rounded me-4">
-                  Register today
-                </Link>
-              </div>
+    <div className="hero">
+      <div className="hero__overlay">
+        <div className="container hero__content">
+          <div className="hero__text">
+            <h1 className="hero__title">
+              The Future of <span className="highlight">Crypto</span> Investment
+            </h1>
+            <p className="hero__description">
+              Experience seamless cryptocurrency trading and investment with our
+              cutting-edge platform. Buy, store, and grow your digital assets
+              all in one place.
+            </p>
+            <div className="hero__cta-group">
+              <Link to="/register" className="hero__cta-primary">
+                Get Started
+                <span className="hero__cta-arrow">→</span>
+              </Link>
+              <Link to="/about" className="hero__cta-secondary">
+                Learn More
+              </Link>
+            </div>
+          </div>
+          <div className="hero__stats">
+            <div className="stat__item">
+              <span className="stat__number">$2B+</span>
+              <span className="stat__label">Trading Volume</span>
+            </div>
+            <div className="stat__item">
+              <span className="stat__number">150K+</span>
+              <span className="stat__label">Active Users</span>
+            </div>
+            <div className="stat__item">
+              <span className="stat__number">99.9%</span>
+              <span className="stat__label">Uptime</span>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

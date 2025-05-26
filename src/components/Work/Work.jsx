@@ -1,46 +1,64 @@
 import React from "react";
-import { IconContext } from "react-icons";
-import { FaUser, FaPiggyBank, FaExchangeAlt } from "react-icons/fa";
+import {
+  FaUserPlus,
+  FaWallet,
+  FaChartBar,
+  FaMoneyBillWave,
+} from "react-icons/fa";
 import "./work.css";
 
 const Work = () => {
+  const steps = [
+    {
+      icon: <FaUserPlus />,
+      title: "Create Account",
+      description: "Sign up in minutes with our simple verification process",
+      number: "01",
+    },
+    {
+      icon: <FaWallet />,
+      title: "Fund Your Wallet",
+      description: "Deposit crypto or fiat currency to start trading",
+      number: "02",
+    },
+    {
+      icon: <FaChartBar />,
+      title: "Start Trading",
+      description: "Access advanced trading tools and real-time market data",
+      number: "03",
+    },
+    {
+      icon: <FaMoneyBillWave />,
+      title: "Earn Profits",
+      description: "Grow your portfolio with our competitive rates",
+      number: "04",
+    },
+  ];
+
   return (
-    <IconContext.Provider value={{ color: "#0e204e", size: "2rem" }}>
-      <div className="work mt-4">
-        <div className="work__container">
-          <div className="work__title">
-            <h1 className="fw-bolder">Start Mining Live in Few Minutes</h1>
-            <p>Neo Market supports a wide Range of cryptocurrency</p>
-          </div>
-          <div className="work__grid">
-            <div className="work__card">
-              <div>
-                <FaUser />
-              </div>
-              <div className="mt-2">
-                <h4 className="py-2 fs-5">Create Account</h4>
-              </div>
+    <section className="work">
+      <div className="container">
+        <div className="work__header">
+          <h2 className="work__title">
+            How It <span className="highlight">Works</span>
+          </h2>
+          <p className="work__subtitle">
+            Get started with cryptocurrency trading in four simple steps
+          </p>
+        </div>
+
+        <div className="work__timeline">
+          {steps.map((step, index) => (
+            <div className="step__card" key={index}>
+              <div className="step__number">{step.number}</div>
+              <div className="step__icon">{step.icon}</div>
+              <h3 className="step__title">{step.title}</h3>
+              <p className="step__description">{step.description}</p>
             </div>
-            <div className="work__card">
-              <div>
-                <FaPiggyBank />
-              </div>
-              <div className="mt-2">
-                <h4 className="py-2 fs-5">Fund Account</h4>
-              </div>
-            </div>
-            <div className="work__card">
-              <div>
-                <FaExchangeAlt />
-              </div>
-              <div className="mt-2">
-                <h4 className="py-2 fs-5">Start Mining</h4>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
-    </IconContext.Provider>
+    </section>
   );
 };
 

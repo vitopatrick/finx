@@ -1,0 +1,154 @@
+.market {
+  padding: 6rem 0;
+  background: linear-gradient(
+    135deg,
+    rgba(8, 17, 37, 0.98) 0%,
+    rgba(8, 17, 37, 0.95) 100%
+  );
+  position: relative;
+}
+
+.market__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.market__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.market__subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.market__ticker {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  position: relative;
+}
+
+.coin__card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.coin__card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(79, 110, 247, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.coin__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.coin__name h3 {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.coin__symbol {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.coin__change {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 500;
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.coin__change.positive {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.coin__change.negative {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.coin__price {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+  background: linear-gradient(120deg, #4f6ef7, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.coin__volume {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.coin__chart {
+  height: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.chart__line {
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.chart__line.positive {
+  background: linear-gradient(to right, rgba(16, 185, 129, 0.2), #10b981);
+}
+
+.chart__line.negative {
+  background: linear-gradient(to right, rgba(239, 68, 68, 0.2), #ef4444);
+}
+
+@media screen and (max-width: 768px) {
+  .market {
+    padding: 4rem 0;
+  }
+
+  .market__title {
+    font-size: 2rem;
+  }
+
+  .market__ticker {
+    grid-template-columns: 1fr;
+  }
+
+  .coin__card {
+    padding: 1.25rem;
+  }
+
+  .coin__price {
+    font-size: 1.5rem;
+  }
+}

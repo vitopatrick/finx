@@ -1,77 +1,92 @@
 import React from "react";
-import { FaChartBar, FaCalendarCheck, FaLock, FaHeadset } from "react-icons/fa";
-import { IconContext } from "react-icons";
+import {
+  FaShieldAlt,
+  FaUsers,
+  FaGlobeAmericas,
+  FaChartLine,
+} from "react-icons/fa";
 import "./about.css";
 
 const About = () => {
+  const stats = [
+    {
+      icon: <FaUsers />,
+      number: "2M+",
+      label: "Active Users",
+      color: "#4f6ef7",
+    },
+    {
+      icon: <FaGlobeAmericas />,
+      number: "150+",
+      label: "Countries Served",
+      color: "#a855f7",
+    },
+    {
+      icon: <FaChartLine />,
+      number: "$10B+",
+      label: "Trading Volume",
+      color: "#10b981",
+    },
+    {
+      icon: <FaShieldAlt />,
+      number: "99.9%",
+      label: "Secure Transactions",
+      color: "#f59e0b",
+    },
+  ];
+
   return (
-    <React.Fragment>
-      <IconContext.Provider value={{ color: "#0e204e", size: "1.8rem" }}>
-        <div className="py-5">
-          <div className="container d-flex flex-column">
-            <div className="text-center">
-              <h1 className="fw-bolder">
-                Create your cryptocurrency portfolio today
-              </h1>
-              <p className="text-muted">
-                Neo Market has a variety of features that make it the best place
-                to start trading
-              </p>
-            </div>
-            <div className="grid mt-4">
-              <div className="d-flex flex-column align-items-center">
-                <div>
-                  <FaChartBar />
+    <section className="about">
+      <div className="container">
+        <div className="about__content">
+          <div className="about__text">
+            <h2 className="about__title">
+              About <span className="highlight">NeoMarket</span>
+            </h2>
+            <p className="about__description">
+              NeoMarket is a leading cryptocurrency trading platform that
+              combines cutting-edge technology with user-friendly features. Our
+              platform provides secure, efficient, and innovative trading
+              solutions for both beginners and experienced traders.
+            </p>
+            <div className="about__features">
+              <div className="feature">
+                <div className="feature__icon">
+                  <FaShieldAlt />
                 </div>
-                <div className="text-center">
-                  <h4 className="my-2">Manage your portfolio</h4>
-                  <p className="text-muted">
-                    Buy and sell popular digital currencies, keep track of them
-                    in the one place.
-                  </p>
+                <div className="feature__text">
+                  <h3>Secure Platform</h3>
+                  <p>Multi-layer security with advanced encryption</p>
                 </div>
               </div>
-              <div className="d-flex flex-column align-items-center">
-                <div>
-                  <FaCalendarCheck />
+              <div className="feature">
+                <div className="feature__icon">
+                  <FaChartLine />
                 </div>
-                <div className="text-center">
-                  <h4 className="my-2">Order Types</h4>
-                  <p className="text-muted">
-                    We offer a suite of order types to give traders the tool
-                    they need for every scenario
-                  </p>
-                </div>
-              </div>
-              <div className="d-flex flex-column align-items-center">
-                <div>
-                  <FaLock />
-                </div>
-                <div className="text-center">
-                  <h4 className="my-2">Security</h4>
-                  <p className="text-muted">
-                    Security of user information and funds is our first
-                    priority.
-                  </p>
-                </div>
-              </div>
-              <div className="d-flex flex-column align-items-center">
-                <div>
-                  <FaHeadset />
-                </div>
-                <div className="text-center">
-                  <h4 className="my-2">Technology</h4>
-                  <p className="text-muted">
-                    We work with Google servers with the highest reliability &
-                    99.99% uptime
-                  </p>
+                <div className="feature__text">
+                  <h3>Advanced Trading</h3>
+                  <p>Professional tools and real-time analytics</p>
                 </div>
               </div>
             </div>
           </div>
+          <div className="about__stats">
+            {stats.map((stat, index) => (
+              <div className="stat__card" key={index}>
+                <div
+                  className="stat__icon"
+                  style={{ backgroundColor: `${stat.color}15` }}
+                >
+                  <span style={{ color: stat.color }}>{stat.icon}</span>
+                </div>
+                <h3 className="stat__number">{stat.number}</h3>
+                <p className="stat__label">{stat.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </IconContext.Provider>
-    </React.Fragment>
+      </div>
+    </section>
   );
 };
 

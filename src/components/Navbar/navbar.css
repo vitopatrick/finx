@@ -1,5 +1,6 @@
 .container {
   width: 90%;
+  max-width: 1200px;
   margin: auto;
   padding: 1rem 0;
   display: flex;
@@ -8,77 +9,139 @@
 }
 
 nav {
-  background-color: #081125;
+  background-color: rgba(8, 17, 37, 0.95);
+  backdrop-filter: blur(10px);
   color: #f8f8f8;
   font-family: "Nunito", sans-serif;
-  position: relative;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+nav.scrolled {
+  background-color: rgba(8, 17, 37, 0.98);
+  padding: 0.5rem 0;
 }
 
 .title {
   font-weight: 700;
   color: white;
   font-size: 2rem;
+  background: linear-gradient(120deg, #4f6ef7, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .links {
-  margin-left: 1rem;
+  margin-left: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.links::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to right, #4f6ef7, #a855f7);
+  transition: width 0.3s ease;
+}
+
+.links:hover {
   color: white;
+}
+
+.links:hover::after {
+  width: 100%;
 }
 
 .cta-1 {
   margin-right: 1.2rem;
-  color: #f8f8f8;
-  background-color: #4f6ef7;
-  padding: 0.6rem 1.4rem;
-  border-radius: 0.2rem;
-  font-size: 0.8rem;
-  font-weight: bold;
-  transition: all 300ms ease-in;
+  color: white;
+  background: linear-gradient(to right, #4f6ef7, #a855f7);
+  padding: 0.8rem 1.6rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .cta-2 {
-  color: #4f6ef7;
-  padding: 0.6rem 1.4rem;
-  border: 1px solid #4f6ef7;
-  border-radius: 0.2rem;
-  font-size: 0.8rem;
-  font-weight: bold;
-  transition: all 300ms ease-in;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .cta-1:hover {
-  color: #4f6ef7;
-  background-color: #f8f8f8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 110, 247, 0.3);
+  color: white;
 }
 
 .cta-2:hover {
-  color: #4f6ef7;
-  background-color: #f8f8f8;
-  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
 }
 
 .bars {
   display: none;
   align-self: center;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.bars:hover {
+  color: #4f6ef7;
 }
 
 .sidenav {
   width: 100%;
-  background-color: #081125;
+  background-color: rgba(8, 17, 37, 0.98);
+  backdrop-filter: blur(10px);
   z-index: 4;
-  position: absolute;
-  left: -999%;
-  transition: 560ms ease;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  right: -100%;
+  transition: 0.3s ease-in-out;
+  padding-top: 5rem;
 }
 
 .sidenav.active {
-  left: 0;
-  transition: 560ms ease;
+  right: 0;
 }
 
 .img-res {
-  width: 20%;
+  width: auto;
   height: 50px;
+}
+
+.nav-links,
+.nav-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.sidenav-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
 }
 
 @media screen and (max-width: 780px) {
@@ -90,5 +153,22 @@ nav {
 
   .bars {
     display: block;
+  }
+
+  .sidenav .links,
+  .sidenav .cta-1,
+  .sidenav .cta-2 {
+    display: block;
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  .sidenav .links::after {
+    display: none;
+  }
+
+  .nav-links,
+  .nav-buttons {
+    display: none;
   }
 }

@@ -1,3 +1,143 @@
 .reason {
-  background-color: #081125;
+  padding: 6rem 0;
+  background: linear-gradient(
+    135deg,
+    rgba(8, 17, 37, 0.98) 0%,
+    rgba(8, 17, 37, 0.95) 100%
+  );
+  position: relative;
+}
+
+.reason__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.reason__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.reason__subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.reason__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.reason__card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.reason__card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(79, 110, 247, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.reason__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.reason__icon span {
+  font-size: 1.25rem;
+}
+
+.reason__content {
+  flex: 1;
+}
+
+.reason__card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 0.75rem;
+}
+
+.reason__description {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.reason__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+  padding-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat__item {
+  text-align: center;
+}
+
+.stat__number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  background: linear-gradient(120deg, #4f6ef7, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat__label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .reason {
+    padding: 4rem 0;
+  }
+
+  .reason__title {
+    font-size: 2rem;
+  }
+
+  .reason__grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto 3rem;
+  }
+
+  .reason__card {
+    padding: 1.5rem;
+  }
+
+  .reason__stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 3rem;
+  }
+
+  .stat__number {
+    font-size: 2rem;
+  }
 }

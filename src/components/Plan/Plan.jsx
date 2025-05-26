@@ -1,73 +1,111 @@
 import React from "react";
-import { plans } from "./plans";
-import { Box, Paper, Typography, Button, Grid, Container } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { FaCheck } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import "./plan.css";
 
 const Plan = () => {
-  const navigate = useNavigate();
+  const plans = [
+    {
+      name: "Basic",
+      price: "0",
+      period: "month",
+      features: [
+        "Basic Trading Tools",
+        "Market Analysis",
+        "Crypto Wallet",
+        "Email Support",
+        "Basic API Access",
+      ],
+      isPopular: false,
+      cta: "Get Started",
+    },
+    {
+      name: "Pro",
+      price: "29",
+      period: "month",
+      features: [
+        "Advanced Trading Tools",
+        "Real-time Analytics",
+        "Multiple Wallets",
+        "Priority Support",
+        "Full API Access",
+        "Lower Trading Fees",
+      ],
+      isPopular: true,
+      cta: "Start Trading",
+    },
+    {
+      name: "Enterprise",
+      price: "99",
+      period: "month",
+      features: [
+        "Custom Trading Tools",
+        "Dedicated Analytics",
+        "Unlimited Wallets",
+        "24/7 Support",
+        "Custom API Solutions",
+        "Lowest Trading Fees",
+        "Custom Integrations",
+      ],
+      isPopular: false,
+      cta: "Contact Sales",
+    },
+  ];
 
   return (
-    <>
-      <div className="d-flex flex-column justify-content-center align-items-center">
-        <div className="container d-flex flex-column justify-content-center align-items-center">
-          <div className="mt-1 mb-2">
-            <h1 className="text-center fw-bolder">Choose A Plan</h1>
-            <p className="text-align fw-bolder">
-              Our duration ranges between a minimum of 3-9 months{" "}
+    <section className="plan">
+      <div className="plan__hero">
+        <div className="container">
+          <div className="plan__header">
+            <h2 className="plan__title">
+              Choose Your <span className="highlight">Plan</span>
+            </h2>
+            <p className="plan__subtitle">
+              Select the perfect trading plan for your investment needs. Start
+              with our free tier or upgrade for advanced features and premium
+              support.
             </p>
           </div>
         </div>
       </div>
-      <Box sx={{ mt: 2 }}>
-        <Container>
-          <Grid container spacing={3}>
-            {plans.map((plan) => (
-              <Grid item xs={12} md={4}>
-                <Paper sx={{ p: 2 }}>
-                  <Box>
-                    <Typography
-                      variant="body1"
-                      component="h1"
-                      gutterBottom
-                      textAlign="center"
-                    >
-                      {plan.title}
-                    </Typography>
-                    <Typography
-                      variant="h5"
-                      component="h1"
-                      gutterBottom
-                      textAlign="center"
-                    >
-                      {plan.price}
-                    </Typography>
 
-                    <Typography
-                      variant="subtitle1"
-                      component="h1"
-                      gutterBottom
-                      textAlign="center"
-                    >
-                      ROI:{plan.roi}
-                    </Typography>
-                  </Box>
-                  <Box sx={{ mt: 2, mb: 2 }}>
-                    <Button
-                      variant="outlined"
-                      color="primary"
-                      fullWidth
-                      onClick={() => navigate("/register")}
-                    >
-                      Start Today !!
-                    </Button>
-                  </Box>
-                </Paper>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
-    </>
+      <div className="container">
+        <div className="plan__grid">
+          {plans.map((plan, index) => (
+            <div
+              className={`plan__card ${plan.isPopular ? "popular" : ""}`}
+              key={index}
+            >
+              {plan.isPopular && (
+                <div className="popular__tag">Most Popular</div>
+              )}
+              <div className="plan__content">
+                <h3 className="plan__name">{plan.name}</h3>
+                <div className="plan__price">
+                  <span className="currency">$</span>
+                  <span className="amount">{plan.price}</span>
+                  <span className="period">/{plan.period}</span>
+                </div>
+                <ul className="plan__features">
+                  {plan.features.map((feature, i) => (
+                    <li key={i}>
+                      <FaCheck className="feature__icon" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  to="/register"
+                  className={`plan__cta ${plan.isPopular ? "popular" : ""}`}
+                >
+                  {plan.cta}
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
