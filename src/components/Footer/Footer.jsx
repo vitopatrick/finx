@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaPhone } from "react-icons/fa";
 import "./footer.css";
 
 const Footer = () => {
@@ -48,10 +48,7 @@ const Footer = () => {
                 <FaEnvelope />
                 <span>support@neomarket.com</span>
               </div>
-              <div className="contact__item">
-                <FaMapMarkerAlt />
-                <span>123 Crypto Street, Digital City</span>
-              </div>
+
               <div className="contact__item">
                 <FaPhone />
                 <span>+1 (555) 123-4567</span>

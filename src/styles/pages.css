@@ -1,0 +1,232 @@
+/* Common Page Styles */
+.page-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0e204e 0%, #1a2d4d 100%);
+  padding: 2rem;
+  color: white;
+}
+
+.page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.page-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Contact Form Styles */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.contact-image {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #4f6ef7;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.form-textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-button {
+  background: linear-gradient(135deg, #4f6ef7 0%, #a855f7 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.form-button:hover {
+  transform: translateY(-2px);
+}
+
+/* Terms Page Styles */
+.terms-content {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+}
+
+.terms-section {
+  margin-bottom: 2rem;
+}
+
+.terms-section-title {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.terms-list {
+  list-style: none;
+  padding-left: 1.5rem;
+}
+
+.terms-list li {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.terms-list li::before {
+  content: "•";
+  color: #4f6ef7;
+  font-weight: bold;
+  position: absolute;
+  left: -1.5rem;
+}
+
+/* About Page Styles */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+}
+
+.about-icon {
+  font-size: 2.5rem;
+  color: #4f6ef7;
+  margin-bottom: 1rem;
+}
+
+.about-card-title {
+  font-size: 1.25rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.about-card-text {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 968px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-image {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page-container {
+    padding: 1rem;
+  }
+
+  .page-content {
+    padding: 1.5rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -8,8 +8,8 @@ import Header from "../components/Header/Header";
 import Newsletter from "../components/Newsletter/Newsletter";
 import Reason from "../components/Reason/Reason";
 import Start from "../components/Start/Start";
-import Work from "../components/Work/Work";
 import Plan from "../components/Plan/Plan";
+import WithdrawalAlert from "../components/Notifications/WithdrawalAlert";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -38,11 +38,11 @@ const Home = () => {
       <TickerTape />
       <About />
       <Start />
-      <Work />
       <Reason />
       <Plan />
       <Newsletter />
       <Footer />
+      <WithdrawalAlert />
     </React.Fragment>
   );
 };

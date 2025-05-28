@@ -1,5 +1,5 @@
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   background-image: linear-gradient(rgba(8, 17, 37, 0.8), rgba(8, 17, 37, 0.9)),
     url("https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=1920");
   background-size: cover;
@@ -10,7 +10,7 @@
 
 .hero__overlay {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   background: linear-gradient(
     135deg,
     rgba(79, 110, 247, 0.1) 0%,
@@ -21,21 +21,27 @@
 }
 
 .hero__content {
-  padding: 2rem 0;
+  padding: 4rem 2rem;
   color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero__text {
   max-width: 700px;
   margin-bottom: 4rem;
+  text-align: center;
 }
 
 .hero__title {
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1.5rem;
   animation: fadeInUp 0.8s ease-out;
+  text-align: center;
 }
 
 .highlight {
@@ -46,17 +52,19 @@
 }
 
 .hero__description {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 2rem;
   animation: fadeInUp 0.8s ease-out 0.2s backwards;
+  text-align: center;
 }
 
 .hero__cta-group {
   display: flex;
   gap: 1.5rem;
   animation: fadeInUp 0.8s ease-out 0.4s backwards;
+  justify-content: center;
 }
 
 .hero__cta-primary {
@@ -69,6 +77,9 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  text-align: center;
+  justify-content: center;
+  min-width: 160px;
 }
 
 .hero__cta-primary:hover {
@@ -92,6 +103,11 @@
   font-weight: 600;
   border: 2px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
+  text-align: center;
+  min-width: 160px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero__cta-secondary:hover {
@@ -102,18 +118,27 @@
 
 .hero__stats {
   display: flex;
-  gap: 4rem;
+  gap: clamp(2rem, 4vw, 4rem);
   animation: fadeInUp 0.8s ease-out 0.6s backwards;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .stat__item {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  flex: 1;
+  min-width: 150px;
+  text-align: center;
+  align-items: center;
 }
 
 .stat__number {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 3vw, 2.5rem);
   font-weight: 700;
   background: linear-gradient(120deg, #4f6ef7, #a855f7);
   -webkit-background-clip: text;
@@ -123,7 +148,7 @@
 
 .stat__label {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 1rem;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
 }
 
 @keyframes fadeInUp {
@@ -138,27 +163,61 @@
 }
 
 @media screen and (max-width: 768px) {
-  .hero__title {
-    font-size: 2.5rem;
+  .hero__content {
+    padding: 3rem 1.5rem;
   }
 
-  .hero__description {
-    font-size: 1.1rem;
-  }
-
-  .hero__stats {
-    flex-direction: column;
-    gap: 2rem;
+  .hero__text {
+    margin: 0 auto 3rem;
   }
 
   .hero__cta-group {
     flex-direction: column;
+    align-items: stretch;
   }
 
   .hero__cta-primary,
   .hero__cta-secondary {
     width: 100%;
-    text-align: center;
+    min-width: auto;
+  }
+
+  .hero__stats {
     justify-content: center;
+    gap: 3rem;
+  }
+
+  .stat__item {
+    flex: 0 1 auto;
+    min-width: 140px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero__content {
+    padding: 2rem 1rem;
+  }
+
+  .hero__stats {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .stat__item {
+    width: 100%;
+    max-width: none;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .stat__number {
+    font-size: 2.5rem;
+  }
+
+  .stat__label {
+    font-size: 1rem;
   }
 }

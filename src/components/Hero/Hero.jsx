@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <div className="hero">
       <div className="hero__overlay">
-        <div className="container hero__content">
+        <div className=" hero__content">
           <div className="hero__text">
             <h1 className="hero__title">
               The Future of <span className="highlight">Crypto</span> Investment
