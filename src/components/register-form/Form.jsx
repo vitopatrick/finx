@@ -8,7 +8,8 @@ import {
 import { setDoc, doc } from "firebase/firestore";
 import { auth, store } from "../../firebase";
 import { useNavigate } from "react-router-dom";
-import "./form.css";
+import { FaUser, FaEnvelope, FaLock, FaPhone, FaGlobe } from "react-icons/fa";
+import "../Auth/auth.css";
 
 const Form = () => {
   // control the input fields
@@ -16,9 +17,19 @@ const Form = () => {
   const [country, setCountry] = useState([]);
 
   // toast configuration
-  toast.configure();
+  const toastConfig = {
+    position: "bottom-center",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+  };
+
   // navigation router hook
-  const naviagte = useNavigate();
+  const navigate = useNavigate();
   // refs for form
   const nameRef = useRef();
   const emailRef = useRef();
@@ -44,8 +55,9 @@ const Form = () => {
       });
       setCountry(countries);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching countries:", error);
       setDisable(true);
+      toast.error("Failed to load countries list", toastConfig);
     }
   };
 
@@ -64,11 +76,8 @@ const Form = () => {
       !passwordRef.current.value |
       !countryRef.current.value
     ) {
-      toast("Please fill the form correctly", {
-        type: "error",
-        position: "bottom-center",
-        theme: "colored",
-      });
+      toast.error("Please fill all fields correctly", toastConfig);
+      return;
     }
     //create the user in firebase and then save to firestore
     try {
@@ -78,7 +87,7 @@ const Form = () => {
         passwordRef.current.value
       );
       // send verification
-      sendEmailVerification(user);
+      await sendEmailVerification(user);
       // set the backdrop
 
       // add to the database
@@ -101,130 +110,154 @@ const Form = () => {
         // walletPhrase: walletRef.current.value,
       });
       // toast notification
-      toast.success("Welcome to Neo Market Please verify your email", {
-        position: "top-center",
-        theme: "colored",
-      });
+      toast.success(
+        "Welcome to Neo Market! Please check your email for verification",
+        {
+          ...toastConfig,
+          position: "top-center",
+        }
+      );
       // redirect user to login
-      naviagte("/login");
+      navigate("/login");
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
-        toast("Email is already in use", {
-          type: "error",
-          position: "bottom-center",
-          theme: "colored",
-        });
+        toast.error("This email is already registered", toastConfig);
       }
       if (error.code === "auth/weak-password") {
-        toast("Password Should be Greater than six characters", {
-          type: "error",
-          position: "bottom-center",
-          theme: "colored",
-        });
+        toast.error("Password must be at least 6 characters long", toastConfig);
       }
       if (error.code === "auth/invalid-email") {
-        toast("Invalid Email", {
-          type: "error",
-          position: "bottom-center",
-          theme: "colored",
-        });
+        toast.error("Please enter a valid email address", toastConfig);
       }
     }
   };
 
   return (
-    <div className="form py-5">
-      <div className="form__card shadow p-3 rounded mt-2">
-        <div className="form__body">
-          <div className="form__title text-center my-5">
-            <Link to="/" className="fs-1 fw-bolder text-main text-primary">
+    <div className="auth-page">
+      <div className="auth-container">
+        <div className="auth-card register">
+          <div className="brand">
+            <div className="brand-logo">N</div>
+            <Link to="/" className="brand-name">
               Neo Market
             </Link>
-            <p className="text-muted">
-              If you already have an account with us click here to{" "}
-              <Link to="/login" className="t-m">
-                Login
-              </Link>
-            </p>
           </div>
-          <div className="form__container">
-            <div className="row my-3">
-              <div className="col-sm-12 col-md-6 col-lg-6">
-                <div className="form-group">
-                  <label htmlFor="Name" className="form-label">
-                    Name
-                  </label>
-                  <input type="text" ref={nameRef} className="form-control" />
-                </div>
+
+          <h2 className="auth-title">Create Account</h2>
+          <p className="auth-subtitle">Join our trading community today</p>
+
+          <form className="auth-form" onSubmit={saveUser}>
+            <div className="form-group">
+              <div className="input-icon">
+                <FaUser />
               </div>
-              <div className="col-sm-12 col-md-6 col-lg-6 sm-mt-2">
-                <div>
-                  <label htmlFor="Name" className="form-label">
-                    Email
-                  </label>
-                  <input type="email" ref={emailRef} className="form-control" />
-                </div>
+              <input
+                type="text"
+                ref={nameRef}
+                className="form-input"
+                placeholder="Full Name"
+                required
+              />
+              <div className="input-border"></div>
+            </div>
+
+            <div className="form-group">
+              <div className="input-icon">
+                <FaEnvelope />
               </div>
+              <input
+                type="email"
+                ref={emailRef}
+                className="form-input"
+                placeholder="Email Address"
+                required
+              />
+              <div className="input-border"></div>
             </div>
-            {/* <div className="my-3">
-              <label htmlFor="wallet phrase" className="form-label">
-                Wallet Phrase
-              </label>
-              <textarea ref={walletRef} className="form-control" />
-            </div> */}
-            <div className="my-3">
-              <label htmlFor="telephone" className="form-label">
-                Phone Number
-              </label>
-              <input type="tel" ref={phoneRef} className="form-control" />
+
+            <div className="form-group">
+              <div className="input-icon">
+                <FaPhone />
+              </div>
+              <input
+                type="tel"
+                ref={phoneRef}
+                className="form-input"
+                placeholder="Phone Number"
+                required
+              />
+              <div className="input-border"></div>
             </div>
-            <div className="my-3">
-              <label htmlFor="password" className="form-label">
-                Password
-              </label>
+
+            <div className="form-group">
+              <div className="input-icon">
+                <FaLock />
+              </div>
               <input
                 type="password"
                 ref={passwordRef}
-                className="form-control"
+                className="form-input"
+                placeholder="Password"
+                required
               />
+              <div className="input-border"></div>
             </div>
-            <div className="my-3">
-              <label htmlFor="phrase" className="form-label">
-                Choose Country
-              </label>
+
+            <div className="form-group">
+              <div className="input-icon">
+                <FaGlobe />
+              </div>
               <select
                 ref={countryRef}
-                className="form-control"
+                className="form-input"
+                required
                 disabled={disable}
               >
+                <option value="">Select Country</option>
                 {country.map((state, index) => (
                   <option key={index} value={state.main}>
                     {state.main}
                   </option>
                 ))}
               </select>
+              <div className="input-border"></div>
             </div>
-            <div className="mt-1 text-center">
-              <p className="text-muted">
-                By Clicking Register you therefore agree to the{" "}
-                <Link to="/terms" className="t-m">
-                  Terms & Conditions
-                </Link>
-                {""}of Neo Market
-              </p>
+
+            <div className="form-terms">
+              <label className="terms-checkbox">
+                <input type="checkbox" required />
+                <span className="checkmark"></span>
+                <span>
+                  I agree to the{" "}
+                  <Link to="/terms" className="auth-link">
+                    Terms & Conditions
+                  </Link>
+                </span>
+              </label>
             </div>
-            <button
-              className="btn btn-block btn-primary block"
-              onClick={saveUser}
-            >
-              Register
+
+            <button type="submit" className="auth-button">
+              <span>Create Account</span>
+              <div className="button-shine"></div>
             </button>
-          </div>
-          <div className="text-center mt-2">
-            <p className="text-primary">
-              © Copyright 2025 Neo Market All Rights Reserved.
+          </form>
+
+          <div className="auth-footer">
+            <p>
+              Already have an account?{" "}
+              <Link to="/login" className="auth-link">
+                Sign In
+              </Link>
             </p>
           </div>
+        </div>
+
+        {/* Decorative Background Elements */}
+        <div className="auth-background">
+          <div className="bg-circle circle-1"></div>
+          <div className="bg-circle circle-2"></div>
+          <div className="bg-line line-1"></div>
+          <div className="bg-line line-2"></div>
         </div>
       </div>
     </div>

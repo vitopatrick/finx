@@ -7,57 +7,50 @@ import {
 } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
-
-import "./form.css";
+import { FaEnvelope, FaLock } from "react-icons/fa";
+import "../Auth/auth.css";
 
 const Form = () => {
-  // navigation
   const navigate = useNavigate();
-  // toast config
-  toast.configure();
-  // login form Ref
+
+  const toastConfig = {
+    position: "bottom-center",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+  };
+
   const emailRef = useRef();
   const passwordRef = useRef();
 
   const loginUser = async (e) => {
     e.preventDefault();
-    // check if the input fields are empty
     if (!emailRef.current.value | !passwordRef.current.value) {
-      toast("Please fill the form correctly", {
-        type: "error",
-        position: "bottom-center",
-        theme: "colored",
-      });
+      toast.error("Please fill the form correctly", toastConfig);
+      return;
     }
-    // sign in user
     try {
       const user = await signInWithEmailAndPassword(
         auth,
         emailRef.current.value,
         passwordRef.current.value
       );
-      // store the token in session
       sessionStorage.setItem("token", user.user.refreshToken);
-      // redirect to dashboard
-      toast.success("Welcome Back !!", {
+      toast.success("Welcome Back! Redirecting to dashboard...", {
+        ...toastConfig,
         position: "top-center",
-        theme: "colored",
       });
       navigate("/dashboard");
     } catch (error) {
       if (error.code === "auth/invalid-login-credentials") {
-        toast("Password is Incorrect", {
-          type: "error",
-          position: "bottom-center",
-          theme: "colored",
-        });
+        toast.error("Password is incorrect", toastConfig);
       }
       if (error.code === "auth/user-not-found") {
-        toast("User Not Found", {
-          type: "error",
-          position: "bottom-center",
-          theme: "colored",
-        });
+        toast.error("User not found", toastConfig);
       }
     }
   };
@@ -66,68 +59,96 @@ const Form = () => {
     e.preventDefault();
     try {
       if (!emailRef.current.value) {
-        toast("Enter Recovery Mail", {
-          type: "error",
-          position: "bottom-center",
-          theme: "colored",
-        });
+        toast.error("Please enter your email address", toastConfig);
       } else {
-        sendPasswordResetEmail(auth, emailRef.current.value);
-        toast.info("Check Your Email for a reset Link", {
-          theme: "colored",
+        await sendPasswordResetEmail(auth, emailRef.current.value);
+        toast.info("Check your email for a reset link", {
+          ...toastConfig,
           position: "top-center",
         });
       }
     } catch (error) {
       if (error.code === "auth/user-not-found") {
-        toast("Enter Recovery Mail", {
-          type: "error",
-          position: "bottom-center",
-          theme: "colored",
-        });
+        toast.error("No account found with this email", toastConfig);
       }
     }
   };
 
   return (
-    <div className="form pd">
-      <div className="form__card shadow rounded my-5 p-3">
-        <div className="form__title text-center">
-          <Link to="/" className="fs-1 fw-bolder text-main text-primary">
-            Neo Market
-          </Link>
-          <p>
-            Click here to{" "}
-            <Link to="/register" className="text-primary">
-              Create Account
+    <div className="auth-page">
+      <div className="auth-container">
+        <div className="auth-card">
+          <div className="brand">
+            <div className="brand-logo">N</div>
+            <Link to="/" className="brand-name">
+              Neo Market
             </Link>
-          </p>
+          </div>
+
+          <h2 className="auth-title">Welcome Back</h2>
+          <p className="auth-subtitle">Access your trading dashboard</p>
+
+          <form className="auth-form" onSubmit={loginUser}>
+            <div className="form-group">
+              <div className="input-icon">
+                <FaEnvelope />
+              </div>
+              <input
+                type="email"
+                ref={emailRef}
+                className="form-input"
+                placeholder="Email Address"
+                required
+              />
+              <div className="input-border"></div>
+            </div>
+
+            <div className="form-group">
+              <div className="input-icon">
+                <FaLock />
+              </div>
+              <input
+                type="password"
+                ref={passwordRef}
+                className="form-input"
+                placeholder="Password"
+                required
+              />
+              <div className="input-border"></div>
+            </div>
+
+            <div className="form-options">
+              <div className="remember-me">
+                <input type="checkbox" id="remember" />
+                <label htmlFor="remember">Remember me</label>
+              </div>
+              <Link to="/" className="forgot-link" onClick={resetPassword}>
+                Forgot Password?
+              </Link>
+            </div>
+
+            <button type="submit" className="auth-button">
+              <span>Sign In</span>
+              <div className="button-shine"></div>
+            </button>
+          </form>
+
+          <div className="auth-footer">
+            <p>
+              New to Neo Market?{" "}
+              <Link to="/register" className="auth-link">
+                Create Account
+              </Link>
+            </p>
+          </div>
         </div>
-        <div className="form__container my-3">
-          <div className="my-4">
-            <label htmlFor="email" className="form-label">
-              Email
-            </label>
-            <input type="email" ref={emailRef} className="form-control" />
-          </div>
-          <div className="my-4">
-            <label htmlFor="password" className="form-label">
-              Password
-            </label>
-            <input type="password" ref={passwordRef} className="form-control" />
-          </div>
-          <div className="text-left my-3">
-            <Link
-              to="/"
-              className="text-muted text-sec"
-              onClick={resetPassword}
-            >
-              Forgot Password
-            </Link>
-          </div>
-          <button className="btn btn-primary btn-block" onClick={loginUser}>
-            Login
-          </button>
+
+        {/* Decorative Background Elements */}
+        <div className="auth-background">
+          <div className="bg-circle circle-1"></div>
+          <div className="bg-circle circle-2"></div>
+          <div className="bg-line line-1"></div>
+          <div className="bg-line line-2"></div>
         </div>
       </div>
     </div>
