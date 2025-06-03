@@ -46,6 +46,8 @@ const Form = () => {
       });
       navigate("/dashboard");
     } catch (error) {
+      console.log(error.code);
+
       if (error.code === "auth/invalid-login-credentials") {
         toast.error("Password is incorrect", toastConfig);
       }

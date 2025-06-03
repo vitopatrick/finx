@@ -17,6 +17,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "./theme/theme";
 
+// import toast container
+import { ToastContainer } from "react-toastify";
+
 // import Pages or Routes
 import Home from "./pages/Home";
 import AboutPage from "./pages/AboutPage";
@@ -42,6 +45,18 @@ ReactDOM.render(
   <UserProvider>
     <ThemeProvider theme={theme}>
       <BrowserRouter>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
