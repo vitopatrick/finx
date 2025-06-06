@@ -24,7 +24,15 @@ const Withdrawal = () => {
   // form state
   const addressRef = useRef();
   const withdrawalAmtRef = useRef();
+  // Bank fields
+  const accountNameRef = useRef();
+  const accountNumberRef = useRef();
+  const bankNameRef = useRef();
+  const bankBranchRef = useRef();
   const [value, setValue] = useState("");
+  // Validation state
+  const [amountError, setAmountError] = useState("");
+  const [accountNumberError, setAccountNumberError] = useState("");
   // function to set modal open and close
   const [open, setOpen] = useState(false);
   const handleClose = () => setOpen(false);
@@ -43,6 +51,25 @@ const Withdrawal = () => {
 
   // function to get the method of withdraw and address
   const withdrawMethod = async () => {
+    // Reset errors
+    setAmountError("");
+    setAccountNumberError("");
+    let hasError = false;
+    // Validate amount (must be a number and > 0)
+    const amount = withdrawalAmtRef.current.value;
+    if (!amount || isNaN(amount) || Number(amount) <= 0) {
+      setAmountError("Please enter a valid number amount");
+      hasError = true;
+    }
+    // Validate bank account number if Bank Transfer
+    if (value === "Bank Transfer") {
+      const accountNumber = accountNumberRef.current.value;
+      if (!accountNumber || !/^[0-9]+$/.test(accountNumber)) {
+        setAccountNumberError("Account number must be digits only");
+        hasError = true;
+      }
+    }
+    if (hasError) return;
     try {
       //  first create the collection ref
       const collectionRef = collection(
@@ -51,13 +78,27 @@ const Withdrawal = () => {
         `/${user.email}`,
         "withdrawal"
       );
-      await addDoc(collectionRef, {
+      let withdrawalData = {
         amount: withdrawalAmtRef.current.value,
         date: serverTimestamp(),
-        address: addressRef.current.value,
         approved: false,
         method: value,
-      });
+      };
+      if (value === "Bank Transfer") {
+        withdrawalData = {
+          ...withdrawalData,
+          accountName: accountNameRef.current.value,
+          accountNumber: accountNumberRef.current.value,
+          bankName: bankNameRef.current.value,
+          bankBranch: bankBranchRef.current.value,
+        };
+      } else {
+        withdrawalData = {
+          ...withdrawalData,
+          address: addressRef.current.value,
+        };
+      }
+      await addDoc(collectionRef, withdrawalData);
 
       toast.success("Order Sent", { theme: "colored", position: "top-center" });
 
@@ -147,15 +188,46 @@ const Withdrawal = () => {
             </Typography>
             <Divider />
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <TextField
-                label="Enter Address"
-                sx={{ mt: 5, mb: 3 }}
-                inputRef={addressRef}
-              />
+              {value === "Bank Transfer" ? (
+                <>
+                  <TextField
+                    label="Account Name"
+                    sx={{ mt: 3, mb: 2 }}
+                    inputRef={accountNameRef}
+                  />
+                  <TextField
+                    label="Account Number"
+                    sx={{ mb: 2 }}
+                    inputRef={accountNumberRef}
+                    error={!!accountNumberError}
+                    helperText={accountNumberError}
+                  />
+                  <TextField
+                    label="Bank Name"
+                    sx={{ mb: 2 }}
+                    inputRef={bankNameRef}
+                  />
+                  <TextField
+                    label="Bank Branch"
+                    sx={{ mb: 3 }}
+                    inputRef={bankBranchRef}
+                  />
+                </>
+              ) : (
+                <TextField
+                  label="Enter Address"
+                  sx={{ mt: 5, mb: 3 }}
+                  inputRef={addressRef}
+                />
+              )}
               <TextField
                 sx={{ mb: 3 }}
                 label="Enter Amount"
                 inputRef={withdrawalAmtRef}
+                error={!!amountError}
+                helperText={amountError}
+                type="number"
+                inputProps={{ min: 1 }}
               />
               <Button
                 variant="contained"
