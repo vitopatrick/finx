@@ -41,7 +41,7 @@ const Start = () => {
             <p className="start__subtitle">
               Begin your crypto trading journey in four simple steps. Join
               thousands of traders who have already started their financial
-              success with NeoMarket.
+              success with Capital flow.
             </p>
           </div>
         </div>

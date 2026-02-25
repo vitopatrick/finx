@@ -41,10 +41,10 @@ const About = () => {
         <div className="about__content">
           <div className="about__text">
             <h2 className="about__title">
-              About <span className="highlight">NeoMarket</span>
+              About <span className="highlight">Capital flow</span>
             </h2>
             <p className="about__description">
-              NeoMarket is a leading cryptocurrency trading platform that
+              Capital flow is a leading cryptocurrency trading platform that
               combines cutting-edge technology with user-friendly features. Our
               platform provides secure, efficient, and innovative trading
               solutions for both beginners and experienced traders.

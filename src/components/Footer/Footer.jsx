@@ -37,7 +37,7 @@ const Footer = () => {
         <div className="footer__grid">
           <div className="footer__brand">
             <Link to="/" className="footer__logo">
-              NeoMarket
+              Capital flow
             </Link>
             <p className="footer__description">
               A next-generation cryptocurrency trading platform combining
@@ -46,7 +46,7 @@ const Footer = () => {
             <div className="footer__contact">
               <div className="contact__item">
                 <FaEnvelope />
-                <span>support@neomarket.com</span>
+                <span>support@Capital flow.com</span>
               </div>
 
               <div className="contact__item">

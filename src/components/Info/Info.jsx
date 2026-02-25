@@ -40,7 +40,7 @@ const Info = () => {
       <div className="container">
         <div className="info__header">
           <h2 className="info__title">
-            Why Choose <span className="highlight">Neomarket</span>
+            Why Choose <span className="highlight">Capital flow</span>
           </h2>
           <p className="info__subtitle">
             Experience the next generation of cryptocurrency trading and

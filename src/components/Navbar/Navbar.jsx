@@ -29,7 +29,7 @@ const Navbar = () => {
     <nav className={scrolled ? "scrolled" : ""}>
       <div className="container">
         <Link to="/" onClick={() => setActive(false)}>
-          <h1 className="title">Neomarket</h1>
+          <h1 className="title">Capital flow</h1>
         </Link>
         <div className="nav-links">
           <Link to="/" className="links" onClick={() => setActive(false)}>
