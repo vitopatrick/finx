@@ -81,6 +81,7 @@ const WithdrawalAlert = () => {
       clearTimeout(initialTimeout);
       clearInterval(interval);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!isVisible) return null;
