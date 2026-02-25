@@ -104,7 +104,7 @@ const Layout = (props) => {
             onClick={goHome}
             sx={{ p: 1, cursor: "pointer" }}
           >
-            Neo Market
+            Capital flow
           </Typography>
         </Toolbar>
       </AppBar>

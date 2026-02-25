@@ -111,7 +111,7 @@ const Form = () => {
       });
       // toast notification
       toast.success(
-        "Welcome to Neo Market! Please check your email for verification",
+        "Welcome to Capital flow! Please check your email for verification",
         {
           ...toastConfig,
           position: "top-center",
@@ -139,7 +139,7 @@ const Form = () => {
           <div className="brand">
             <div className="brand-logo">N</div>
             <Link to="/" className="brand-name">
-              Neo Market
+              Capital flow
             </Link>
           </div>
 

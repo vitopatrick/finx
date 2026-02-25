@@ -12,7 +12,7 @@ const About = () => {
     <div className="page-container">
       <div className="page-content fade-in">
         <div className="page-header">
-          <h1 className="page-title">About Neo Market</h1>
+          <h1 className="page-title">About Capital flow</h1>
           <p className="page-subtitle">
             A next-generation cryptocurrency trading platform designed for both
             beginners and experienced traders.
@@ -75,7 +75,7 @@ const About = () => {
             className="about-card-text"
             style={{ maxWidth: "800px", margin: "0 auto" }}
           >
-            At Neo Market, we're committed to making cryptocurrency trading
+            At Capital flow, we're committed to making cryptocurrency trading
             accessible, secure, and profitable for everyone. Our platform
             combines cutting-edge technology with user-friendly interfaces to
             provide the best trading experience possible. We believe in

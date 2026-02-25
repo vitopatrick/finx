@@ -83,7 +83,7 @@ const Form = () => {
           <div className="brand">
             <div className="brand-logo">N</div>
             <Link to="/" className="brand-name">
-              Neo Market
+              Capital flow
             </Link>
           </div>
 
@@ -137,7 +137,7 @@ const Form = () => {
 
           <div className="auth-footer">
             <p>
-              New to Neo Market?{" "}
+              New to Capital flow?{" "}
               <Link to="/register" className="auth-link">
                 Create Account
               </Link>
