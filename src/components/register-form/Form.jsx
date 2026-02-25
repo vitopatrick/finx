@@ -62,8 +62,8 @@ const Form = () => {
   };
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     fetchCountry();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // function to create and save user to the database
